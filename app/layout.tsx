@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost, Noto_Sans_Telugu } from "next/font/google";
-// @ts-expect-error CSS imports may not have type declarations in this setup
+// TypeScript may complain about importing a global CSS file in some configs.
+// Ignore the next line's type check for the side-effect CSS import.
+// @ts-ignore
 import "./globals.css";
 import { LanguageProvider } from "@/components/language-context";
 import { siteData } from "@/lib/site-data";
