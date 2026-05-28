@@ -18,11 +18,9 @@ export function ContactSection() {
     const msg = encodeURIComponent(
       `✨ You are invited to our wedding ✨
 
-        💍 Invitation:
-        ${inviteUrl}
+       💍 Invitation: ${inviteUrl}
 
-        📍 Wedding Venue:
-        ${venueMapUrl}`,
+       📍 Wedding Venue: ${venueMapUrl}`,
             );
 
     window.open(`https://wa.me/?text=${msg}`, "_blank", "noopener,noreferrer");
