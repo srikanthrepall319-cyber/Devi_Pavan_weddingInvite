@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { GlobalAudio } from "@/components/global-audio";
+import { InvitationProvider } from "@/components/invitation-context";
 import { Cormorant_Garamond, Jost, Noto_Sans_Telugu } from "next/font/google";
 // TypeScript may complain about importing a global CSS file in some configs.
 // Ignore the next line's type check for the side-effect CSS import.
@@ -35,17 +37,22 @@ export const metadata: Metadata = {
     template: `%s · ${siteData.coupleShort}`,
   },
   description: siteData.seoDescription,
-  keywords: ["wedding invitation", "Andhra wedding", "Telugu wedding", "cinematic wedding site"],
+  keywords: [
+    "wedding invitation",
+    "Andhra wedding",
+    "Telugu wedding",
+    "cinematic wedding site",
+  ],
   openGraph: {
-    title:       siteData.seoTitle,
+    title: siteData.seoTitle,
     description: siteData.seoDescription,
-    url:         siteData.siteUrl,
-    siteName:    siteData.coupleShort,
-    type:        "website",
+    url: siteData.siteUrl,
+    siteName: siteData.coupleShort,
+    type: "website",
   },
   twitter: {
-    card:        "summary_large_image",
-    title:       siteData.seoTitle,
+    card: "summary_large_image",
+    title: siteData.seoTitle,
     description: siteData.seoDescription,
   },
   alternates: {
@@ -61,7 +68,11 @@ export default function RootLayout({
       <body
         className={`${jost.variable} ${cormorant.variable} ${telugu.variable} font-sans antialiased`}
       >
-        <LanguageProvider>{children}</LanguageProvider>
+        <GlobalAudio>
+          <InvitationProvider>
+            <LanguageProvider>{children}</LanguageProvider>
+          </InvitationProvider>
+        </GlobalAudio>
       </body>
     </html>
   );

@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { MusicToggle } from "@/components/music-toggle";
 import { useLanguage } from "@/components/language-context";
 import { copy } from "@/lib/i18n";
 import { siteData } from "@/lib/site-data";
-
+import { useAudio } from "@/components/global-audio";
 import { LanguageToggle } from "@/components/language-toggle";
 import { LoadingScreen } from "@/components/loading-screen";
 
@@ -16,6 +16,8 @@ import { Home, CalendarDays, Flower2, Mail } from "lucide-react";
 
 import { FloatingPetals } from "@/components/floating-petals";
 import { Footer } from "@/components/footer";
+
+import { useInvitation } from "@/components/invitation-context";
 
 const nav = [
   { href: "/", key: "navHome", icon: Home },
@@ -33,37 +35,23 @@ export function SiteShell({
 }) {
   const { language } = useLanguage();
   const t = copy[language];
+  const audioRef = useAudio();
+  
 
-  const [entered, setEntered] = useState(false);
+const { entered, setEntered } = useInvitation();
 
-  useEffect(() => {
-    const hasEntered = sessionStorage.getItem("wedding-entered");
+ const handleEnter = async () => {
+  try {
+    await audioRef.current?.play();
+  } catch {}
 
-    if (hasEntered === "true") {
-      setEntered(true);
-    }
-  }, []);
-
-  const audioRef = useRef<HTMLAudioElement>(null);
-
-  const handleEnter = async () => {
-    try {
-      await audioRef.current?.play();
-    } catch {}
-
-    sessionStorage.setItem("wedding-entered", "true");
-
-    setTimeout(() => {
-      setEntered(true);
-    }, 1800);
-  };
+  setTimeout(() => {
+    setEntered(true);
+  }, 1800);
+};
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#89484c] text-[#f1e9da]">
-      <audio ref={audioRef} loop preload="auto">
-        <source src="/music/wedding-song.mp3" type="audio/mpeg" />
-      </audio>
-
       {!entered && <LoadingScreen onEnter={handleEnter} />}
 
       {entered && (
