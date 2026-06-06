@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import Image from "next/image";
 
 import { siteData } from "@/lib/site-data";
 import { useLanguage } from "@/components/language-context";
@@ -29,14 +30,63 @@ export function HeroSection() {
         style={{ backgroundImage: "url('/hero-texture.svg')", backgroundSize: "cover" }}
       />
 
-      <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl items-center px-4 py-12 md:px-6">
-        <div className="grid w-full gap-12 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+      <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl flex-col items-center px-4 py-12 md:px-6 lg:flex-row lg:items-center">
+        <div className="grid w-full gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+
+          {/* ── MOBILE COUPLE PHOTO (shown only on mobile / tablet) ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="relative mx-auto block w-full max-w-sm overflow-hidden rounded-3xl lg:hidden"
+            style={{ aspectRatio: "3/4" }}
+          >
+            {/* Photo */}
+            <Image
+              src="/couple.jpg"
+              alt="Bride and Groom"
+              fill
+              className="object-cover object-top"
+              priority
+              sizes="(max-width: 1024px) 90vw, 0vw"
+            />
+
+            {/* 1. Top edge — kills bright sky/tree tops */}
+            <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#180a0e]/90 via-[#180a0e]/30 to-transparent" />
+
+            {/* 2. Left edge fade */}
+            <div className="absolute inset-y-0 left-0 w-10 bg-gradient-to-r from-[#1a0508]/70 to-transparent" />
+
+            {/* 3. Right edge fade */}
+            <div className="absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-[#1a0508]/70 to-transparent" />
+
+            {/* 4. Bottom fade — blends into the dark page + monogram space */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0f0508]/95 via-[#0f0508]/20 to-transparent" />
+
+            {/* Gold corner accents */}
+            <svg className="absolute left-3 top-3 h-8 w-8 text-gold/40" viewBox="0 0 32 32" fill="none">
+              <path d="M0 0 L0 14 M0 0 L14 0" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+            <svg className="absolute right-3 top-3 h-8 w-8 text-gold/40" viewBox="0 0 32 32" fill="none">
+              <path d="M32 0 L32 14 M32 0 L18 0" stroke="currentColor" strokeWidth="1.5" />
+            </svg>
+
+            {/* Monogram overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 px-5 pb-5 text-center">
+              <div className="mx-auto mb-2 flex items-center gap-3">
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+                <span className="font-serif text-3xl italic text-gold-light">{siteData.initials}</span>
+                <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+              </div>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold/70">Wedding Invitation</p>
+            </div>
+          </motion.div>
 
           {/* ── LEFT CONTENT ── */}
           <motion.div
             initial={{ opacity: 0, y: 28 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: "easeOut", delay: 0.1 }}
             className="text-center text-white lg:text-left"
           >
             {/* Badge */}
@@ -47,11 +97,11 @@ export function HeroSection() {
 
             {/* Names */}
             <h1 className="font-serif text-[clamp(3rem,8vw,5.5rem)] font-light leading-[1.04] tracking-wide">
-              <span className="shimmer-text block">{siteData.coupleFull.groom}</span>
+              <span className="shimmer-text block">{siteData.coupleFull.bride}</span>
               <span className="my-2 block font-serif text-xl font-light italic text-gold/60 md:text-2xl">
                 &amp;
               </span>
-              <span className="shimmer-text block">{siteData.coupleFull.bride}</span>
+              <span className="shimmer-text block">{siteData.coupleFull.groom}</span>
             </h1>
 
             {/* Tagline */}
@@ -108,59 +158,101 @@ export function HeroSection() {
 
             {/* Footnote badge */}
             <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/5 px-5 py-2.5 text-sm text-white/55 backdrop-blur-sm">
-              <span className="h-2 w-2 rounded-full bg-gold shadow-[0_0_10px_rgba(201,168,76,0.8)]" />
               A celebration filled with tradition, elegance &amp; timeless memories.
             </div>
           </motion.div>
 
-          {/* ── RIGHT INVITATION CARD ── */}
+          {/* ── RIGHT COUPLE PHOTO CARD (desktop only) ── */}
           <motion.div
             initial={{ opacity: 0, scale: 0.94 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, delay: 0.25, ease: "easeOut" }}
             className="relative hidden lg:block"
           >
-            {/* Ambient glow */}
-            <div className="absolute -inset-8 rounded-[3rem] bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.18),transparent_70%)] blur-3xl" />
+            {/* Warm ambient glow */}
+            <div className="absolute -inset-8 rounded-[3rem] bg-[radial-gradient(circle_at_center,rgba(201,168,76,0.2),transparent_65%)] blur-3xl" />
+            <div className="absolute -inset-4 rounded-[3rem] bg-[radial-gradient(ellipse_at_bottom,rgba(110,31,45,0.45),transparent_60%)] blur-2xl" />
 
-            {/* Card */}
-            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/8 bg-white/[0.04] p-5 shadow-2xl backdrop-blur-2xl">
-              <div className="rounded-[2rem] border border-white/8 bg-gradient-to-br from-[#6e1f2d]/88 via-[#3e0d18]/92 to-[#c9a84c]/15 p-8">
+            {/* Outer glass frame */}
+            <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.04] p-4 shadow-2xl backdrop-blur-2xl">
 
-                <p className="text-[10px] uppercase tracking-[0.42em] text-gold/80">
-                  Wedding Invitation
-                </p>
-                <p className="mt-3 font-serif text-4xl italic text-gold-light">
-                  {siteData.initials}
-                </p>
+              {/* Photo container */}
+              <div className="relative overflow-hidden rounded-[2rem]" style={{ aspectRatio: "3/4" }}>
+                <Image
+                  src="/couple.jpg"
+                  alt="Bride and Groom"
+                  fill
+                  className="object-cover object-top"
+                  priority
+                  sizes="(max-width: 1280px) 40vw, 480px"
+                />
 
-                {/* Ornamental divider */}
-                <div className="my-6 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+                {/* 1. Left edge fade — blends into the dark page seamlessly */}
+                <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#1a0508]/80 to-transparent" />
 
-                {/* Message */}
-                <p className="text-[15px] leading-8 text-white/70">
-                  Two hearts, two families, and one beautiful journey.
-                  We warmly invite you to celebrate this joyful occasion
-                  and bless us with your presence.
-                </p>
+                {/* 2. Right edge fade */}
+                <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#1a0508]/80 to-transparent" />
 
-                {/* Tags */}
-                <div className="mt-7 grid grid-cols-3 gap-2.5 text-center text-[11px] tracking-widest uppercase">
-                  {["Love", "Tradition", "Celebration"].map((tag) => (
-                    <div
-                      key={tag}
-                      className="rounded-2xl border border-white/8 bg-black/20 py-3 text-gold/80"
-                    >
-                      {tag}
+                {/* 3. Top edge fade — kills the bright sky/tree tops */}
+                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#180a0e]/85 via-[#180a0e]/30 to-transparent" />
+
+                {/* 4. Bottom gradient — for name overlay readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0f0508]/95 via-[#0f0508]/25 to-transparent" />
+
+                {/* Top badge */}
+                <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3.5 py-1.5 backdrop-blur-md">
+                  <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_rgba(201,168,76,0.9)]" />
+                  <span className="text-[10px] uppercase tracking-[0.35em] text-gold-light">
+                    Wedding Invitation
+                  </span>
+                </div>
+
+                {/* Gold corner accents */}
+                <svg className="absolute right-3 top-3 h-10 w-10 text-gold/35" viewBox="0 0 40 40" fill="none">
+                  <path d="M40 0 L40 16 M40 0 L24 0" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+                <svg className="absolute bottom-[96px] left-3 h-10 w-10 text-gold/35" viewBox="0 0 40 40" fill="none">
+                  <path d="M0 40 L0 24 M0 40 L16 40" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+
+                {/* Bottom overlay: monogram + names + date */}
+                <div className="absolute bottom-0 left-0 right-0 px-6 pb-6 pt-10">
+                  <p className="font-serif text-4xl italic text-gold-light leading-none">
+                    {siteData.initials}
+                  </p>
+
+                  <div className="my-3 flex items-center gap-3">
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+                    <span className="text-gold/50 text-xs">✦</span>
+                    <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
+                  </div>
+
+                  <p className="font-serif text-lg text-white/90 leading-snug tracking-wide">
+                    {siteData.coupleFull.groom}
+                    <span className="mx-2 text-gold/60 font-light italic">&amp;</span>
+                    {siteData.coupleFull.bride}
+                  </p>
+
+                  <div className="mt-3 flex items-center justify-between">
+                    <div className="flex items-center gap-2 text-white/50 text-xs tracking-widest uppercase">
+                      <span className="h-1 w-1 rounded-full bg-gold/60" />
+                      Save the Date
                     </div>
-                  ))}
+                    <span className="font-serif text-gold text-base">27 · 06 · 2026</span>
+                  </div>
                 </div>
+              </div>
 
-                {/* Date stamp */}
-                <div className="mt-6 flex items-center justify-between rounded-2xl border border-white/8 bg-black/20 px-5 py-3 text-sm">
-                  <span className="text-white/45 tracking-wide">Save the date</span>
-                  <span className="font-serif text-gold text-base">27 · 06 · 2026</span>
-                </div>
+              {/* Below photo: tradition tags */}
+              <div className="mt-3 grid grid-cols-3 gap-2 text-center text-[11px] tracking-widest uppercase">
+                {["Love", "Tradition", "Celebration"].map((tag) => (
+                  <div
+                    key={tag}
+                    className="rounded-2xl border border-white/8 bg-black/20 py-3 text-gold/70"
+                  >
+                    {tag}
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
