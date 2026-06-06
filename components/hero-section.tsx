@@ -27,12 +27,14 @@ export function HeroSection() {
       {/* Texture */}
       <div
         className="absolute inset-0 opacity-[0.05]"
-        style={{ backgroundImage: "url('/hero-texture.svg')", backgroundSize: "cover" }}
+        style={{
+          backgroundImage: "url('/hero-texture.svg')",
+          backgroundSize: "cover",
+        }}
       />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl flex-col items-center px-4 py-12 md:px-6 lg:flex-row lg:items-center">
         <div className="grid w-full gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-
           {/* ── MOBILE COUPLE PHOTO (shown only on mobile / tablet) ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -42,13 +44,10 @@ export function HeroSection() {
             style={{ aspectRatio: "3/4" }}
           >
             {/* Photo */}
-            <Image
+            <img
               src="/couple.jpg"
               alt="Bride and Groom"
-              fill
-              className="object-cover object-top"
-              priority
-              sizes="(max-width: 1024px) 90vw, 0vw"
+              className="absolute inset-0 h-full w-full object-cover"
             />
 
             {/* 1. Top edge — kills bright sky/tree tops */}
@@ -64,21 +63,41 @@ export function HeroSection() {
             <div className="absolute inset-0 bg-gradient-to-t from-[#0f0508]/95 via-[#0f0508]/20 to-transparent" />
 
             {/* Gold corner accents */}
-            <svg className="absolute left-3 top-3 h-8 w-8 text-gold/40" viewBox="0 0 32 32" fill="none">
-              <path d="M0 0 L0 14 M0 0 L14 0" stroke="currentColor" strokeWidth="1.5" />
+            <svg
+              className="absolute left-3 top-3 h-8 w-8 text-gold/40"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M0 0 L0 14 M0 0 L14 0"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
             </svg>
-            <svg className="absolute right-3 top-3 h-8 w-8 text-gold/40" viewBox="0 0 32 32" fill="none">
-              <path d="M32 0 L32 14 M32 0 L18 0" stroke="currentColor" strokeWidth="1.5" />
+            <svg
+              className="absolute right-3 top-3 h-8 w-8 text-gold/40"
+              viewBox="0 0 32 32"
+              fill="none"
+            >
+              <path
+                d="M32 0 L32 14 M32 0 L18 0"
+                stroke="currentColor"
+                strokeWidth="1.5"
+              />
             </svg>
 
             {/* Monogram overlay at bottom */}
             <div className="absolute bottom-0 left-0 right-0 px-5 pb-5 text-center">
               <div className="mx-auto mb-2 flex items-center gap-3">
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
-                <span className="font-serif text-3xl italic text-gold-light">{siteData.initials}</span>
+                <span className="font-serif text-3xl italic text-gold-light">
+                  {siteData.initials}
+                </span>
                 <div className="h-px flex-1 bg-gradient-to-r from-transparent via-gold/40 to-transparent" />
               </div>
-              <p className="text-[10px] uppercase tracking-[0.4em] text-gold/70">Wedding Invitation</p>
+              <p className="text-[10px] uppercase tracking-[0.4em] text-gold/70">
+                Wedding Invitation
+              </p>
             </div>
           </motion.div>
 
@@ -97,17 +116,22 @@ export function HeroSection() {
 
             {/* Names */}
             <h1 className="font-serif text-[clamp(3rem,8vw,5.5rem)] font-light leading-[1.04] tracking-wide">
-              <span className="shimmer-text block">{siteData.coupleFull.bride}</span>
+              <span className="shimmer-text block">
+                {siteData.coupleFull.bride}
+              </span>
               <span className="my-2 block font-serif text-xl font-light italic text-gold/60 md:text-2xl">
                 &amp;
               </span>
-              <span className="shimmer-text block">{siteData.coupleFull.groom}</span>
+              <span className="shimmer-text block">
+                {siteData.coupleFull.groom}
+              </span>
             </h1>
 
             {/* Tagline */}
             <p className="mx-auto mt-6 max-w-md text-[15px] leading-8 text-white/65 lg:mx-0">
-              With the blessings of our families, we joyfully invite you to celebrate
-              our wedding and share in the warmth of this beautiful beginning.
+              With the blessings of our families, we joyfully invite you to
+              celebrate our wedding and share in the warmth of this beautiful
+              beginning.
             </p>
 
             {/* CTA */}
@@ -151,14 +175,18 @@ export function HeroSection() {
                   Live Countdown
                 </p>
                 <div className="mt-3">
-                  <CountdownTimer targetDate={new Date(siteData.weddingDate)} compact />
+                  <CountdownTimer
+                    targetDate={new Date(siteData.weddingDate)}
+                    compact
+                  />
                 </div>
               </div>
             </div>
 
             {/* Footnote badge */}
             <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/5 px-5 py-2.5 text-sm text-white/55 backdrop-blur-sm">
-              A celebration filled with tradition, elegance &amp; timeless memories.
+              A celebration filled with tradition, elegance &amp; timeless
+              memories.
             </div>
           </motion.div>
 
@@ -175,16 +203,15 @@ export function HeroSection() {
 
             {/* Outer glass frame */}
             <div className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/[0.04] p-4 shadow-2xl backdrop-blur-2xl">
-
               {/* Photo container */}
-              <div className="relative overflow-hidden rounded-[2rem]" style={{ aspectRatio: "3/4" }}>
-                <Image
+              <div
+                className="relative overflow-hidden rounded-[2rem]"
+                style={{ aspectRatio: "3/4" }}
+              >
+                <img
                   src="/couple.jpg"
                   alt="Bride and Groom"
-                  fill
-                  className="object-cover object-top"
-                  priority
-                  sizes="(max-width: 1280px) 40vw, 480px"
+                  className="absolute inset-0 h-full w-full object-cover"
                 />
 
                 {/* 1. Left edge fade — blends into the dark page seamlessly */}
@@ -208,11 +235,27 @@ export function HeroSection() {
                 </div>
 
                 {/* Gold corner accents */}
-                <svg className="absolute right-3 top-3 h-10 w-10 text-gold/35" viewBox="0 0 40 40" fill="none">
-                  <path d="M40 0 L40 16 M40 0 L24 0" stroke="currentColor" strokeWidth="1.5" />
+                <svg
+                  className="absolute right-3 top-3 h-10 w-10 text-gold/35"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <path
+                    d="M40 0 L40 16 M40 0 L24 0"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
                 </svg>
-                <svg className="absolute bottom-[96px] left-3 h-10 w-10 text-gold/35" viewBox="0 0 40 40" fill="none">
-                  <path d="M0 40 L0 24 M0 40 L16 40" stroke="currentColor" strokeWidth="1.5" />
+                <svg
+                  className="absolute bottom-[96px] left-3 h-10 w-10 text-gold/35"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                >
+                  <path
+                    d="M0 40 L0 24 M0 40 L16 40"
+                    stroke="currentColor"
+                    strokeWidth="1.5"
+                  />
                 </svg>
 
                 {/* Bottom overlay: monogram + names + date */}
@@ -229,7 +272,9 @@ export function HeroSection() {
 
                   <p className="font-serif text-lg text-white/90 leading-snug tracking-wide">
                     {siteData.coupleFull.groom}
-                    <span className="mx-2 text-gold/60 font-light italic">&amp;</span>
+                    <span className="mx-2 text-gold/60 font-light italic">
+                      &amp;
+                    </span>
                     {siteData.coupleFull.bride}
                   </p>
 
@@ -238,7 +283,9 @@ export function HeroSection() {
                       <span className="h-1 w-1 rounded-full bg-gold/60" />
                       Save the Date
                     </div>
-                    <span className="font-serif text-gold text-base">27 · 06 · 2026</span>
+                    <span className="font-serif text-gold text-base">
+                      27 · 06 · 2026
+                    </span>
                   </div>
                 </div>
               </div>

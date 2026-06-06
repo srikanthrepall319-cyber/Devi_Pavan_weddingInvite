@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { MusicToggle } from "@/components/music-toggle";
 import { useLanguage } from "@/components/language-context";
@@ -36,12 +36,22 @@ export function SiteShell({
 
   const [entered, setEntered] = useState(false);
 
+  useEffect(() => {
+    const hasEntered = sessionStorage.getItem("wedding-entered");
+
+    if (hasEntered === "true") {
+      setEntered(true);
+    }
+  }, []);
+
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleEnter = async () => {
     try {
       await audioRef.current?.play();
     } catch {}
+
+    sessionStorage.setItem("wedding-entered", "true");
 
     setTimeout(() => {
       setEntered(true);
