@@ -29,11 +29,8 @@ export function StorySection() {
           >
             <article className="glass-card flex h-full flex-col rounded-3xl p-7 shadow-card transition-shadow duration-300 hover:shadow-glow">
               {/* Step number */}
-              <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-full bg-gold/10 font-serif text-sm text-gold">
-                {String(index + 1).padStart(2, "0")}
-              </span>
 
-              <p className="text-[10px] uppercase tracking-[0.38em] text-gold">
+              <p className="text-[10px] uppercase tracking-[0.38em] text-black">
                 {item.year}
               </p>
               <h3 className="mt-2 font-serif text-2xl font-light text-maroon">
