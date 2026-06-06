@@ -45,7 +45,7 @@ export function HeroSection() {
           >
             {/* Photo */}
             <img
-              src="/couple.jpg"
+              src="../couple.jpg"
               alt="Bride and Groom"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -110,7 +110,6 @@ export function HeroSection() {
           >
             {/* Badge */}
             <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-maroon-deep/70 px-5 py-2 text-[11px] uppercase tracking-[0.38em] text-gold-light backdrop-blur-sm">
-              <span className="h-1.5 w-1.5 rounded-full bg-gold-light/80" />
               {t.invite}
             </p>
 
@@ -209,7 +208,7 @@ export function HeroSection() {
                 style={{ aspectRatio: "3/4" }}
               >
                 <img
-                  src="/couple.jpg"
+                  src="../couple.jpg"
                   alt="Bride and Groom"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
@@ -229,9 +228,7 @@ export function HeroSection() {
                 {/* Top badge */}
                 <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3.5 py-1.5 backdrop-blur-md">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_rgba(201,168,76,0.9)]" />
-                  <span className="text-[10px] uppercase tracking-[0.35em] text-gold-light">
                     Wedding Invitation
-                  </span>
                 </div>
 
                 {/* Gold corner accents */}
