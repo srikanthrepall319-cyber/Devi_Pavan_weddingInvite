@@ -45,7 +45,7 @@ export function HeroSection() {
           >
             {/* Photo */}
             <img
-              src="../couple.jpg"
+              src="/couple.webp"
               alt="Bride and Groom"
               className="absolute inset-0 h-full w-full object-cover"
             />
@@ -208,7 +208,7 @@ export function HeroSection() {
                 style={{ aspectRatio: "3/4" }}
               >
                 <img
-                  src="../couple.jpg"
+                  src="/couple.webp"
                   alt="Bride and Groom"
                   className="absolute inset-0 h-full w-full object-cover"
                 />
