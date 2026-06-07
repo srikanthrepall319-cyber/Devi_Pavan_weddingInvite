@@ -9,20 +9,17 @@ import { siteData } from "@/lib/site-data";
 import { useAudio } from "@/components/global-audio";
 import { LanguageToggle } from "@/components/language-toggle";
 import { LoadingScreen } from "@/components/loading-screen";
-
 import { cn } from "@/lib/utils";
-
-import { Home, CalendarDays, Flower2, Mail } from "lucide-react";
-
+import { Home, CalendarDays, Flower2, Mail, Images } from "lucide-react";
 import { FloatingPetals } from "@/components/floating-petals";
 import { Footer } from "@/components/footer";
-
 import { useInvitation } from "@/components/invitation-context";
 
 const nav = [
   { href: "/", key: "navHome", icon: Home },
   { href: "/events", key: "navEvents", icon: CalendarDays },
   { href: "/traditions", key: "navTraditions", icon: Flower2 },
+  { href: "/gallery", key: "navGallery", icon: Images },
   { href: "/contact", key: "navContact", icon: Mail },
 ] as const;
 
@@ -31,24 +28,23 @@ export function SiteShell({
   currentPath,
 }: {
   children: React.ReactNode;
-  currentPath: "/" | "/events" | "/traditions" | "/contact";
+  currentPath: "/" | "/events" | "/traditions" | "/gallery" | "/contact";
 }) {
   const { language } = useLanguage();
   const t = copy[language];
   const audioRef = useAudio();
-  
 
-const { entered, setEntered } = useInvitation();
+  const { entered, setEntered } = useInvitation();
 
- const handleEnter = async () => {
-  try {
-    await audioRef.current?.play();
-  } catch {}
+  const handleEnter = async () => {
+    try {
+      await audioRef.current?.play();
+    } catch {}
 
-  setTimeout(() => {
-    setEntered(true);
-  }, 1800);
-};
+    setTimeout(() => {
+      setEntered(true);
+    }, 1800);
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#89484c] text-[#f1e9da]">
