@@ -64,7 +64,7 @@ export function LoadingScreen({
           <img
             src="/gallery/mandala.png"
             alt="Mandala"
-            className=" h-100 w-100 animate-[spin_18s_linear_infinite]"
+            className=" h-72 w-72 animate-[spin_18s_linear_infinite]"
             draggable={false}
           />
         </div>

@@ -16,6 +16,7 @@ export function Footer() {
         <nav className="flex items-center gap-5 text-[13px] text-ink/50">
           <Link href="/events"     className="hover:text-maroon transition-colors">Events</Link>
           <Link href="/traditions" className="hover:text-maroon transition-colors">Traditions</Link>
+          <Link href="/gallery"   className="hover:text-maroon transition-colors">Gallery</Link>
           <Link href="/contact"    className="hover:text-maroon transition-colors">Contact</Link>
         </nav>
       </div>

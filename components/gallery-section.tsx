@@ -6,8 +6,6 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination } from "swiper/modules";
 
-import Lightbox from "yet-another-react-lightbox";
-
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -15,8 +13,6 @@ import { SectionHeading } from "@/components/section-heading";
 import { siteData } from "@/lib/site-data";
 
 export function GallerySection() {
-  const [lightboxIndex, setLightboxIndex] = useState(-1);
-
   const shuffledGallery = useMemo(() => {
     const arr = [...siteData.gallery];
 
@@ -27,10 +23,6 @@ export function GallerySection() {
 
     return arr;
   }, []);
-
-  const slides = shuffledGallery.map((src) => ({
-    src,
-  }));
 
   return (
     <section
@@ -47,7 +39,7 @@ export function GallerySection() {
         <Swiper
           modules={[Pagination]}
           pagination={{
-            clickable: true,
+            clickable: false,
           }}
           slidesPerView={1}
           spaceBetween={30}
@@ -59,7 +51,6 @@ export function GallerySection() {
             <SwiperSlide key={index}>
               <div
                 className="cursor-pointer"
-                onClick={() => setLightboxIndex(index)}
               >
                 <div
                   className="
@@ -92,13 +83,6 @@ export function GallerySection() {
           ))}
         </Swiper>
       </div>
-
-      <Lightbox
-        open={lightboxIndex >= 0}
-        close={() => setLightboxIndex(-1)}
-        index={lightboxIndex}
-        slides={slides}
-      />
     </section>
   );
 }
