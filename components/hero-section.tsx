@@ -41,7 +41,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
             className="relative mx-auto block w-full max-w-sm overflow-hidden rounded-3xl lg:hidden"
-            style={{ aspectRatio: "3/4" }}
+            style={{ aspectRatio: "4/3" }}
           >
             {/* Photo */}
             <img
