@@ -1,7 +1,3 @@
-# Andhra Cinematic Wedding Invite
-
-A premium, cinematic, fully responsive Hindu Telugu Andhra Pradesh wedding invitation website built with Next.js, Tailwind CSS, and Framer Motion.
-
 ## What is inside
 
 - Home, Events, Traditions, Contact pages
