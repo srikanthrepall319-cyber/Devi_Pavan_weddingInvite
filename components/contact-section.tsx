@@ -1,13 +1,12 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Copy, MessageCircle, QrCode, Phone, Check } from "lucide-react";
+import { Copy, MessageCircle, Phone, Check } from "lucide-react";
 import { useState } from "react";
 
 import { siteData } from "@/lib/site-data";
 import { SectionHeading } from "@/components/section-heading";
 import { Button } from "@/components/ui";
-import { QRCodeCanvas } from "qrcode.react";
 
 export function ContactSection() {
   const inviteUrl = siteData.siteUrl;
@@ -16,8 +15,8 @@ export function ContactSection() {
   const shareWhatsApp = () => {
     const msg = encodeURIComponent(
       `✨ You are invited to our wedding ✨\n\n` +
-      `💍 View Invitation: ${inviteUrl}\n\n` +
-      `📍 Wedding Venue: ${siteData.events[0].mapsQuery}`
+        `💍 View Invitation: ${inviteUrl}\n\n` +
+        `📍 Wedding Venue: ${siteData.events[0].mapsQuery}`,
     );
     window.open(`https://wa.me/?text=${msg}`, "_blank", "noopener,noreferrer");
   };
@@ -95,33 +94,38 @@ export function ContactSection() {
           </div>
         </motion.article>
 
-        {/* ── QR card ── */}
+        {/* ── Live Stream card ── */}
         <motion.article
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ delay: 0.1 }}
-          className="dark-card flex flex-col items-center justify-center rounded-3xl p-8 text-center shadow-[0_4px_32px_rgba(0,0,0,0.28)]"
+          className="dark-card flex flex-col rounded-3xl p-8 shadow-[0_4px_32px_rgba(0,0,0,0.28)]"
         >
-          <div className="rounded-[1.5rem] bg-white p-4 shadow-2xl">
-            <QRCodeCanvas
-              value={inviteUrl}
-              size={200}
-              includeMargin={false}
-              bgColor="#ffffff"
-              fgColor="#3e0d18"
-              level="H"
-            />
-          </div>
+          <h3 className="font-serif text-[1.9rem] font-light text-gold-light">
+            Live Stream
+          </h3>
 
-          <span className="mt-6 inline-flex items-center gap-2 rounded-full border border-gold/20 bg-gold/10 px-5 py-2 text-[10px] uppercase tracking-[0.38em] text-gold">
-            <QrCode className="h-3.5 w-3.5" />
-            Scan to Share
-          </span>
-
-          <p className="mt-4 max-w-xs text-[13px] leading-6 text-white/45">
-            {siteData.contact.venueNote}
+          <p className="mt-4 text-[14px] leading-7 text-white/60">
+            For those who said "We would have come, but..." we've made things
+            easier. A live stream link will be available here so you can still
+            witness the celebrations from anywhere in the world.
           </p>
+
+          <div className="my-7 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
+
+          <p className="text-[14px] leading-7 text-white/50">
+            The streaming link will be updated closer to the event.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button
+              disabled
+              className="border-gold/20 bg-white/5 text-white cursor-not-allowed hover:bg-white/5"
+            >
+              Live Stream Coming Soon
+            </Button>
+          </div>
         </motion.article>
       </div>
 
