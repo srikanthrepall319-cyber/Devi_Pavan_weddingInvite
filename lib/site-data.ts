@@ -8,9 +8,10 @@ export const siteData = {
     groom: "Pavan",
   },
   initials: "Devi ❤️ Pavan",
-  seoTitle: "Devi & Pavan — Wedding Invitation",
+  seoTitle: "Devi ❤️ Pavan | Wedding Invitation",
+  siteName: "Devi ❤️ Pavan - Wedding",
   seoDescription:
-    "A premium cinematic Hindu Telugu Andhra wedding invitation with traditions, events, countdown, and sharing tools.",
+  "💍 Devi & Pavan are getting married! We warmly invite you to celebrate our wedding and bless us as we begin this beautiful journey together.",
 
   weddingDate: "2026-06-27T20:43:00+05:30",
 

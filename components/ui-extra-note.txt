@@ -1,2 +1,0 @@
-This file is only a note. Use /public/music/wedding-instrumental.mp3 if you want the background music button to play a real song.
-You can also add your own hero image or texture in /public/hero-texture.svg.
