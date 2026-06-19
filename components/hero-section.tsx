@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
-import Image from "next/image";
 
 import { siteData } from "@/lib/site-data";
 import { useLanguage } from "@/components/language-context";
@@ -34,7 +33,7 @@ export function HeroSection() {
       />
 
       <div className="relative mx-auto flex min-h-[calc(100vh-72px)] max-w-7xl flex-col items-center px-4 py-12 md:px-6 lg:flex-row lg:items-center">
-        <div className="grid w-full gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <div className="grid w-full gap-10 lg:grid-cols-[1fr_1fr] lg:items-center">
           {/* ── MOBILE COUPLE PHOTO (shown only on mobile / tablet) ── */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -127,10 +126,11 @@ export function HeroSection() {
             </h1>
 
             {/* Tagline */}
-            <p className="mx-auto mt-6 max-w-md text-[15px] leading-8 text-white/65 lg:mx-0">
-              With the blessings of our families, we joyfully invite you to
-              celebrate our wedding and share in the warmth of this beautiful
-              beginning.
+            <p className="mx-auto mt-6 max-w-lg text-[15px] leading-8 text-white/65 lg:mx-0">
+              Two hearts. Two families. One beautiful beginning.
+              <br />
+              We invite you to join us as we celebrate the start of a lifetime
+              together.
             </p>
 
             {/* CTA */}
@@ -146,9 +146,9 @@ export function HeroSection() {
               </Link>
               <Link href="/traditions">
                 <Button
-                  variant="ghost"
+                  variant="outline"
                   size="lg"
-                  className="rounded-full px-8 text-white/60 hover:text-white"
+                  className="rounded-full border-gold/25 bg-white/5 px-8 text-[#f8e7c2] backdrop-blur-sm hover:bg-gold/10 hover:text-white"
                 >
                   Our Traditions
                 </Button>
@@ -156,36 +156,28 @@ export function HeroSection() {
             </div>
 
             {/* Info cards */}
-            <div className="mt-10 grid gap-4 sm:grid-cols-2">
-              {/* Wedding Date */}
-              <div className="rounded-3xl border border-white/8 bg-white/5 p-5 text-left backdrop-blur-xl">
-                <p className="text-[10px] uppercase tracking-[0.32em] text-gold">
-                  Wedding Muhurtham
+            <div className="mt-12 flex flex-col gap-6 sm:flex-row sm:items-center">
+              <div>
+                <p className="text-[11px] uppercase tracking-[0.4em] text-gold">
+                  Save The Date
                 </p>
-                <p className="mt-3 font-serif text-2xl text-white/90">
-                  {formatDate(new Date(siteData.weddingDate), language)}
-                </p>
-                <p className="mt-1.5 text-sm text-white/45">08:43 PM IST</p>
+
+                <p className="mt-2 font-serif text-5xl text-white">27</p>
+
+                <p className="text-white/60">June 2026</p>
               </div>
 
-              {/* Countdown */}
-              <div className="rounded-3xl border border-white/8 bg-white/5 p-5 text-left backdrop-blur-xl">
-                <p className="text-[10px] uppercase tracking-[0.32em] text-gold">
-                  Live Countdown
-                </p>
-                <div className="mt-3">
-                  <CountdownTimer
-                    targetDate={new Date(siteData.weddingDate)}
-                    compact
-                  />
-                </div>
-              </div>
-            </div>
+              <div className="hidden h-20 w-px bg-gold/20 sm:block" />
 
-            {/* Footnote badge */}
-            <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-white/8 bg-white/5 px-5 py-2.5 text-sm text-white/55 backdrop-blur-sm">
-              A celebration filled with tradition, elegance &amp; timeless
-              memories.
+              <div>
+                <p className="font-serif text-xl text-white/90">
+                  Kothapeta, Avanigadda, Andhra Pradesh
+                </p>
+
+                <p className="mt-2 text-white/50">
+                  Wedding Muhurtham · 08:43 PM IST
+                </p>
+              </div>
             </div>
           </motion.div>
 
@@ -228,7 +220,7 @@ export function HeroSection() {
                 {/* Top badge */}
                 <div className="absolute left-4 top-4 flex items-center gap-2 rounded-full border border-white/15 bg-black/35 px-3.5 py-1.5 backdrop-blur-md">
                   <span className="h-1.5 w-1.5 rounded-full bg-gold shadow-[0_0_6px_rgba(201,168,76,0.9)]" />
-                    Wedding Invitation
+                  Wedding Invitation
                 </div>
 
                 {/* Gold corner accents */}
@@ -285,18 +277,6 @@ export function HeroSection() {
                     </span>
                   </div>
                 </div>
-              </div>
-
-              {/* Below photo: tradition tags */}
-              <div className="mt-3 grid grid-cols-3 gap-2 text-center text-[11px] tracking-widest uppercase">
-                {["Love", "Tradition", "Celebration"].map((tag) => (
-                  <div
-                    key={tag}
-                    className="rounded-2xl border border-white/8 bg-black/20 py-3 text-gold/70"
-                  >
-                    {tag}
-                  </div>
-                ))}
               </div>
             </div>
           </motion.div>

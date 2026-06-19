@@ -48,6 +48,42 @@ export function ContactSection() {
       />
 
       <div className="mt-14 grid gap-6 lg:grid-cols-2">
+        {/* ── Live Stream card ── */}
+        <motion.article
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ delay: 0.1 }}
+          className="dark-card flex flex-col rounded-3xl p-8 shadow-[0_4px_32px_rgba(0,0,0,0.28)]"
+        >
+          <h3 className="font-serif text-[1.9rem] font-light text-gold-light">
+            Live Stream
+          </h3>
+
+          <p className="mt-4 text-[14px] leading-7 text-white/60">
+            For those who said "We would have come, but..." we've made things
+            easier. A live stream link will be available here so you can still
+            witness the celebrations from anywhere in the world.
+          </p>
+
+          <div className="my-7 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
+
+          <p className="text-[14px] leading-7 text-white/50">
+            The streaming link will be updated closer to the event.
+          </p>
+
+          <div className="mt-8 flex flex-wrap gap-3">
+            <Button
+              disabled
+              variant="outline"
+              size="lg"
+              className="rounded-full border-gold/25 bg-white/5 px-8 text-[#f8e7c2] backdrop-blur-sm hover:bg-gold/10 hover:text-white"
+            >
+              Live Stream Coming Soon
+            </Button>
+          </div>
+        </motion.article>
+
         {/* ── Thank-you card ── */}
         <motion.article
           initial={{ opacity: 0, y: 24 }}
@@ -90,40 +126,6 @@ export function ContactSection() {
                 <Copy className="mr-2 h-4 w-4" />
               )}
               {copied ? "Copied!" : "Copy Link"}
-            </Button>
-          </div>
-        </motion.article>
-
-        {/* ── Live Stream card ── */}
-        <motion.article
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ delay: 0.1 }}
-          className="dark-card flex flex-col rounded-3xl p-8 shadow-[0_4px_32px_rgba(0,0,0,0.28)]"
-        >
-          <h3 className="font-serif text-[1.9rem] font-light text-gold-light">
-            Live Stream
-          </h3>
-
-          <p className="mt-4 text-[14px] leading-7 text-white/60">
-            For those who said "We would have come, but..." we've made things
-            easier. A live stream link will be available here so you can still
-            witness the celebrations from anywhere in the world.
-          </p>
-
-          <div className="my-7 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
-
-          <p className="text-[14px] leading-7 text-white/50">
-            The streaming link will be updated closer to the event.
-          </p>
-
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              disabled
-              className="border-gold/20 bg-white/5 text-white cursor-not-allowed hover:bg-white/5"
-            >
-              Live Stream Coming Soon
             </Button>
           </div>
         </motion.article>

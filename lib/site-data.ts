@@ -11,7 +11,7 @@ export const siteData = {
   seoTitle: "Devi ❤️ Pavan | Wedding Invitation",
   siteName: "Devi ❤️ Pavan - Wedding",
   seoDescription:
-  "💍 Devi & Pavan are getting married! We warmly invite you to celebrate our wedding and bless us as we begin this beautiful journey together.",
+    "💍 Devi & Pavan are getting married! We warmly invite you to celebrate our wedding and bless us as we begin this beautiful journey together.",
 
   weddingDate: "2026-06-27T20:43:00+05:30",
 
@@ -45,7 +45,7 @@ export const siteData = {
     "/gallery/9.webp",
     "/gallery/10.webp",
     "/gallery/11.webp",
-    "/gallery/12.webp"
+    "/gallery/12.webp",
   ],
 
   events: [
@@ -54,7 +54,7 @@ export const siteData = {
       title: "Wedding Ceremony",
       date: "2026-06-27",
       time: "08:43 PM",
-      venue: "Kothapeta, Avanigadda, Andhra Pradesh",
+      venue: "At our home, Kothapeta, Avanigadda",
       mapsQuery: "https://maps.app.goo.gl/mkT5Mgm8UU44KKYm9",
       description:
         "The sacred wedding ritual where the couple begins a blessed new life together.",
@@ -64,7 +64,7 @@ export const siteData = {
       title: "Reception",
       date: "2026-06-29",
       time: "10:00 AM",
-      venue: "Pedakonduru, Guntur, Andhra Pradesh",
+      venue: "Kanaka Puttalamma Talli Devastanam, Pedakonduru, Guntur",
       mapsQuery: "https://maps.app.goo.gl/kvcsWYL9ojoe39e2A",
       description:
         "A morning of celebration, warm wishes, photographs, and happy hearts.",
@@ -73,36 +73,66 @@ export const siteData = {
 
   traditions: [
     {
-      key: "jeelakarra",
+      key: "gouri-puja",
+      title: "Gouri Puja",
+      english:
+        "Before the wedding, the bride offers prayers to Goddess Gouri, seeking blessings for a happy, harmonious, and prosperous married life.",
+      telugu:
+        "వధువు గౌరీ దేవిని ఆరాధించి, సుఖసంతోషాలతో నిండిన వైవాహిక జీవితానికి ఆశీర్వాదాలు కోరుతుంది.",
+    },
+
+    {
+      key: "madhuparkalu",
+      title: "Madhuparkalu",
+      english:
+        "The traditional wedding attire offered during the ceremony symbolizes purity, tradition, and the union of two families.",
+      telugu:
+        "మధుపర్కాలు వధూవరులకు అందించే సంప్రదాయ వస్త్రాలు, రెండు కుటుంబాల ఐక్యతను సూచిస్తాయి.",
+    },
+
+    {
+      key: "kanyadanam",
+      title: "Kanyadanam",
+      english:
+        "The bride's parents lovingly entrust their daughter to the groom, blessing the couple as they begin their new journey together.",
+      telugu:
+        "కన్యాదానంలో వధువు తల్లిదండ్రులు తమ కుమార్తెను వరుడికి అప్పగించి నూతన జీవితానికి ఆశీర్వదిస్తారు.",
+    },
+
+    {
+      key: "jeelakarra-bellam",
       title: "Jeelakarra Bellam",
       english:
-        "The bride and groom place cumin and jaggery on each other's heads, showing that life should have both balance and sweetness.",
+        "The bride and groom place cumin and jaggery paste on each other's heads, symbolizing that they will remain inseparable through life's sweetness and challenges.",
       telugu:
-        "జీలకర్ర బెల్లం అనేది జీవితంలో సమతుల్యం మరియు మాధుర్యం ఉండాలని సూచించే పవిత్ర సంప్రదాయం.",
+        "వధూవరులు ఒకరిపై ఒకరు జీలకర్ర బెల్లం ఉంచడం ద్వారా జీవితంలోని సుఖదుఃఖాలను కలిసి ఎదుర్కొంటామని సూచిస్తారు.",
     },
+
+    {
+      key: "mangalya-dharanam",
+      title: "Mangalya Dharanam",
+      english:
+        "The groom ties the sacred mangalasutra around the bride's neck, marking the sacred bond of marriage and lifelong companionship.",
+      telugu:
+        "వరుడు వధువు మెడలో మంగళసూత్రాన్ని కట్టి పవిత్రమైన వైవాహిక బంధాన్ని స్థాపిస్తాడు.",
+    },
+
     {
       key: "talambralu",
       title: "Talambralu",
       english:
-        "The couple shower rice mixed with pearls and love, wishing a life full of prosperity and joy.",
+        "The bride and groom shower each other with sacred rice, symbolizing prosperity, happiness, abundance, and playful companionship.",
       telugu:
-        "తలంబ్రాలు అనేది ఆనందం, శుభం, మరియు సంపదతో నిండిన జీవితానికి ఆశీర్వాదం.",
+        "వధూవరులు ఒకరిపై ఒకరు తలంబ్రాలు పోసుకుంటూ ఆనందం, ఐశ్వర్యం మరియు సౌభాగ్యాన్ని కోరుకుంటారు.",
     },
-    {
-      key: "mangalasutra",
-      title: "Mangalasutra Dharana",
-      english:
-        "The sacred thread is tied with blessings, marking the bond of marriage and mutual respect.",
-      telugu:
-        "మంగళసూత్ర ధారణ అనేది వివాహ బంధాన్ని పవిత్రంగా బలపరచే ముఖ్యమైన ఘట్టం.",
-    },
+
     {
       key: "saptapadi",
       title: "Saptapadi",
       english:
-        "The seven steps together mean seven promises for a lifelong journey of love, duty, and trust.",
+        "The couple takes seven sacred steps around the holy fire, making seven vows of love, trust, prosperity, and togetherness.",
       telugu:
-        "సప్తపది అంటే ఏడడుగుల ప్రయాణం. ఇది జీవితాంతం ప్రేమ, నమ్మకం, బాధ్యత అనే ప్రతిజ్ఞ.",
+        "వధూవరులు అగ్నిసాక్షిగా ఏడడుగులు వేసి ప్రేమ, నమ్మకం, సంపద, సహజీవనం వంటి ఏడు ప్రతిజ్ఞలు చేస్తారు.",
     },
   ],
 

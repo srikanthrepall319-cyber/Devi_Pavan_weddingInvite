@@ -26,7 +26,7 @@ export function CountdownSection() {
 
         <div className="relative mx-auto max-w-2xl text-center">
           <p className="ornament text-[10px] uppercase tracking-[0.42em] text-gold">
-            Wedding Countdown
+            wedding ticker
           </p>
           <h3 className="mt-4 font-serif text-[clamp(1.6rem,3.5vw,2.8rem)] font-light italic leading-snug">
             A few precious moments until our celebration
