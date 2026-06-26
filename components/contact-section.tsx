@@ -15,8 +15,8 @@ export function ContactSection() {
   const shareWhatsApp = () => {
     const msg = encodeURIComponent(
       `✨ You are invited to our wedding ✨\n\n` +
-        `💍 View Invitation: ${inviteUrl}\n\n` +
-        `📍 Wedding Venue: ${siteData.events[0].mapsQuery}`,
+      `💍 View Invitation: ${inviteUrl}\n\n` +
+      `📍 Wedding Venue: ${siteData.events[0].mapsQuery}`,
     );
     window.open(`https://wa.me/?text=${msg}`, "_blank", "noopener,noreferrer");
   };
@@ -67,20 +67,15 @@ export function ContactSection() {
           </p>
 
           <div className="my-7 h-px bg-gradient-to-r from-transparent via-gold/15 to-transparent" />
-
-          <p className="text-[14px] leading-7 text-white/50">
-            The streaming link will be updated closer to the event.
-          </p>
-
           <div className="mt-8 flex flex-wrap gap-3">
-            <Button
-              disabled
-              variant="outline"
-              size="lg"
-              className="rounded-full border-gold/25 bg-white/5 px-8 text-[#f8e7c2] backdrop-blur-sm hover:bg-gold/10 hover:text-white"
+            <a
+              href="https://www.youtube.com/live/_FuwUss4xVI?si=OXSUGy57F6KgPIXf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center rounded-full border border-gold/25 bg-white/5 px-8 py-3 text-[#f8e7c2] backdrop-blur-sm transition hover:bg-gold/10 hover:text-white"
             >
-              Live Stream Coming Soon
-            </Button>
+              🎥 Watch Live
+            </a>
           </div>
         </motion.article>
 
