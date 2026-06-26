@@ -54,8 +54,8 @@ export const siteData = {
       title: "Wedding Ceremony",
       date: "2026-06-27",
       time: "08:43 PM",
-      venue: "At our home, Kothapeta, Avanigadda",
-      mapsQuery: "https://maps.app.goo.gl/mkT5Mgm8UU44KKYm9",
+      venue: "At Gandhi Kshetram, Avanigadda",
+      mapsQuery: "https://maps.app.goo.gl/AqauXEmuJ1svFqpo8?g_st=ac",
       description:
         "The sacred wedding ritual where the couple begins a blessed new life together.",
     },
